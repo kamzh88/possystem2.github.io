@@ -155,6 +155,7 @@ $(document).ready(function () {
 
 	$(document).on("click", "#button-clear", function (event) {
 		$(".employeeID").empty();
+		inputArray = [];
 	});
 
 	orderButton();
