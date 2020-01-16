@@ -1,0 +1,76 @@
+body {
+	margin: 0 auto;
+	width: 100%;
+	padding: 1rem;
+	background: repeat url("../images/micro_carbon.png");
+}
+
+.grid {
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	grid-gap: 1rem;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: auto;
+	grid-template-areas: 
+		"header header"
+		"admin keypad";
+}
+.header {
+	grid-area: header;
+}
+.admin {
+	grid-area: admin;
+	/* justify-self: end; */
+}
+.keypad {
+	grid-area: keypad;
+	/* justify-self: start; */
+}
+
+.header {
+	border: 1px solid black;
+	border-radius: 1rem;
+	background-color: white;
+	margin: 1rem;
+	padding: 2rem;
+	text-align: center;
+	width: 100%;
+}
+
+.employeeID {
+	border: 2px solid deepskyblue;
+	border-radius: 5px;
+	margin: 1rem 0;
+	padding: 1rem;
+	width: 100%;
+	height: auto;
+	background-color: white;
+}
+
+.keypadNumber {
+	width: 6rem;
+	height: 6rem;
+}
+
+.btn > span {
+	font-size: 21px;
+}
+
+.fa-arrow-alt-circle-left {
+	font-size: 21px;
+}
+
+.time {
+	
+	top: 1rem;
+	right: 2rem;
+	font-weight: bolder;
+}
+/* body.modal-open div.modal-backdrop { 
+    z-index: 0; 
+}
+
+.modal-backdrop {
+    display: none;
+} */

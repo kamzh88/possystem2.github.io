@@ -1,0 +1,137 @@
+<link rel="stylesheet" href="/css/index.css">
+<main class="grid">
+
+    <section class="header">
+        <h2>POS System</h2>
+        <span>1st Class POS Solutions</span>
+        <div class="time"></div>
+    </section>
+
+    <section class="admin">
+        <div class="buttons">
+            <button type="button" id="button-submit" class="btn btn-primary btn-lg btn-block" value="submit"><span>Menu</span></button>
+            <br>
+            <button type="button" id="create-employee" class="btn btn-primary btn-lg btn-block" value="create"><i
+                    class="fas fa-plus"></i><span>New
+                    Employee</span></button>
+            <br>
+            <button id="view-employee" class="btn btn-primary btn-lg btn-block" value="edit"><i class="fas fa-plus"></i><span>View
+                    Employee</span></button>
+            <br>
+            {{!-- <button id="order-list" class="btn btn-primary btn-lg btn-block" data-toggle='modal' data-target="#exampleModalLong3">View
+                Orders</button> --}}
+            <br>
+        </div>
+    </section>
+
+    <section class="keypad">
+        <h3 class="employeeID"></h3>
+        <div class="buttons">
+            <button id="button-1" class="btn btn-primary keypadNumber number" data-value="1"><span>1</span></button>
+            <button id="button-2" class="btn btn-primary keypadNumber number" data-value="2"><span>2</span></button>
+            <button id="button-3" class="btn btn-primary keypadNumber number" data-value="3"><span>3</span></button>
+            <br><br>
+            <button id="button-4" class="btn btn-primary keypadNumber number" data-value="4"><span>4</span></button>
+            <button id="button-5" class="btn btn-primary keypadNumber number" data-value="5"><span>5</span></button>
+            <button id="button-6" class="btn btn-primary keypadNumber number" data-value="6"><span>6</span></button>
+            <br><br>
+            <button id="button-7" class="btn btn-primary keypadNumber number" data-value="7"><span>7</span></button>
+            <button id="button-8" class="btn btn-primary keypadNumber number" data-value="8"><span>8</span></button>
+            <button id="button-9" class="btn btn-primary keypadNumber number" data-value="9"><span>9</span></button>
+            <br><br>
+            <button id="button-clear" class="btn btn-dark clear keypadNumber" value="clear"><span><i
+                        class="far fa-arrow-alt-circle-left"></i></span></button>
+            <button id="button-0" class="btn btn-primary keypadNumber number" data-value="0"><span>0</span></button>
+
+        </div>
+    </section>
+</main>
+
+<!-- View All Orders Modal -->
+<div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Orders</h5>
+                <button id="modal3" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="body3">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal3">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete new employees modal -->
+<div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">All Employees</h5>
+                <button id="modal2" type="button" class="close" data-dismiss="modal" aria-label="Close" modal="show">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="all-employee"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal2">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add New Employees Modal -->
+<div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create New Employee</h5>
+                <button id="modal1" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="create-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">First Name</label>
+                        <input type="text" class="form-control" id="first-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Last Name</label>
+                        <input type="text" class="form-control" id="last-name">
+                    </div>
+                    <p> Select an item </p>
+                    <div class="form-group">
+                        <label class="checkbox-inline"><input type="checkbox" name="level"
+                                value="Cashier">Cashier</label>
+                        <label class="checkbox-inline"><input type="checkbox" name="level"
+                                value="Manager">Manager</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Code (Numbers Only)</label>
+                        <input type="text" class="form-control" id="employee-id">
+                    </div>
+                    <!-- </div> -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal1">Close</button>
+                        <button type="submit" class="btn btn-primary submit">Create</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script type="module" src="/js/indexView.js"></script>

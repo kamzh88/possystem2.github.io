@@ -1,0 +1,249 @@
+body {
+	background: repeat url("../images/micro_carbon.png");
+	padding: 1rem;
+}
+.header {
+	display: flex;
+	grid-area: header;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	height: 155px;
+}
+.adminButtons {
+	align-self: flex-end;
+}
+.time {
+	position: absolute;
+	top: 1rem;
+	right: 2rem;
+	font-weight: bolder;
+}
+.buttons {
+	grid-area: buttons;
+}
+.categoryGrid {
+	grid-area: category;
+}
+.itemsGrid {
+	grid-area: items;
+}
+.orderGrid {
+	grid-area: orders;
+	position: relative;
+}
+.buttons {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-template-areas: 
+		"category items";
+}
+.containerGrid {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-gap: 1rem;
+	grid-template-areas:
+		"header header"
+		"buttons orders";
+}
+h1 {
+	width: fit-content;
+	padding: 0 1rem;
+}
+.orderGrid > form > h1,
+.header > .brand > h1 {
+	padding: 0;
+}
+.orderButtons {
+	position: absolute;
+	bottom: 1rem;
+}
+.header,
+.buttons,
+.orderGrid {
+	background-color: white;
+	border: 1px solid white;
+	border-radius: 1rem;
+	padding: 1rem;
+}
+.categorybtn {
+	background: #F6A53D;
+	background-image: -webkit-linear-gradient(top, #F6A53D, #D0611E);
+	background-image: -moz-linear-gradient(top, #F6A53D, #D0611E);
+	background-image: -ms-linear-gradient(top, #F6A53D, #D0611E);
+	background-image: -o-linear-gradient(top, #F6A53D, #D0611E);
+	background-image: linear-gradient(to bottom, #F6A53D, #D0611E);
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	color: #FFFFFF;
+	font-family: Open Sans;
+	font-size: 1.5rem;
+	font-weight: 100;
+	padding: 1rem;
+	box-shadow: 1px 1px 20px 0px #000000;
+	-webkit-box-shadow: 1px 1px 20px 0px #000000;
+	-moz-box-shadow: 1px 1px 20px 0px #000000;
+	text-shadow: 1px 1px 20px #000000;
+	border: solid #FFAE00 1px;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
+	margin: 1rem;
+	width: 150px;
+	height: 106px;
+}
+.itembtn,
+#create-items {
+	border: 2px dashed white;
+	opacity: 0.7;
+}
+
+#create-items:hover {
+	opacity: 1;
+}
+#menu-changes,
+#order-list,
+#logOut {
+	background: #3D94F6;
+	background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+	background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+	background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+	background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+	background-image: linear-gradient(to bottom, #3D94F6, #1E62D0);
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	color: #FFFFFF;
+	font-family: Open Sans;
+	font-size: 1.5rem;
+	font-weight: 100;
+	padding: 1rem;
+	box-shadow: 1px 1px 20px 0px #000000;
+	-webkit-box-shadow: 1px 1px 20px 0px #000000;
+	-moz-box-shadow: 1px 1px 20px 0px #000000;
+	text-shadow: 1px 1px 20px #000000;
+	border: solid #337FED 1px;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
+	margin: 1rem;
+	width: 150px;
+	height: 106px;
+}
+.categorybtn:hover,
+.itembtn:hover,
+#create-items:hover {
+	border: solid #337FED 1px;
+	background: #1E62D0;
+	background-image: -webkit-linear-gradient(top, #1E62D0, #3D94F6);
+	background-image: -moz-linear-gradient(top, #1E62D0, #3D94F6);
+	background-image: -ms-linear-gradient(top, #1E62D0, #3D94F6);
+	background-image: -o-linear-gradient(top, #1E62D0, #3D94F6);
+	background-image: linear-gradient(to bottom, #1E62D0, #3D94F6);
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	text-decoration: none;
+}
+
+#menu-changes,
+#order-list,
+#logOut {
+	background: #F63D57;
+	background-image: -webkit-linear-gradient(top, #F63D57, #771ED0);
+	background-image: -moz-linear-gradient(top, #F63D57, #771ED0);
+	background-image: -ms-linear-gradient(top, #F63D57, #771ED0);
+	background-image: -o-linear-gradient(top, #F63D57, #771ED0);
+	background-image: linear-gradient(to bottom, #F63D57, #771ED0);
+	border: 1px solid #DD380D;
+	font-size: 1.25rem;
+	height: 70px;
+}
+#menu-changes:hover,
+#order-list:hover,
+#logOut:hover {
+	border: solid #DD380D 1px;
+	background: #1E62D0;
+	background-image: -webkit-linear-gradient(top, #771ED0, #F63D57);
+	background-image: -moz-linear-gradient(top, #771ED0, #F63D57);
+	background-image: -ms-linear-gradient(top, #771ED0, #F63D57);
+	background-image: -o-linear-gradient(top, #771ED0, #F63D57);
+	background-image: linear-gradient(to bottom, #771ED0, #F63D57);
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	text-decoration: none;
+}
+
+.orderButtons {
+	width: 100%;
+}
+.orderButtons > .submit {
+	background-color: #3DF651;
+	width: 100%;
+}
+
+/* Modal Body */
+.modal-body > .edit-heading:nth-of-type(odd) {
+	background-color: lightgray;
+	padding: 0.5rem;
+}
+
+.edit-heading > .delete-item {
+	float: right;
+	padding: 0;
+	border: none;
+}
+
+/* Order Totals Section */
+.form-orderlist {
+	position: relative;
+	height: 100%;
+}
+.form-orderlist > #total {
+	position: absolute;
+	bottom: 4rem;
+	width: 100%;
+}
+.subtotalCSS {
+	grid-area: subtotal;
+}
+.taxCSS {
+	grid-area: tax;
+}
+.totalCSS {
+	grid-area: total;
+}
+.totalGrid {
+	border-top: 1px solid black;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-areas: 
+		"subtotal"
+		"tax"
+		"total";
+}
+.order-div {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+.order-div > div:hover {
+	background-color: deepskyblue;
+}
+.boldCSS {
+	font-weight: bold;
+	float: right;
+}
+#menu-changes {
+	display: none;
+}
+#create-items {
+	display: none;
+}
+/* #category-div{
+	border-right: 1px solid black;
+} */
