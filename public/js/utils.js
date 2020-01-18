@@ -1,4 +1,4 @@
-export { updateTime, orderButton };
+export { updateTime};
 
 function updateTime() {
     $.ajax("/api/moment", {
@@ -11,6 +11,3 @@ function updateTime() {
     })
 }
 
-function orderButton() {
-
-}

@@ -1,4 +1,8 @@
-import { updateTime, orderButton } from './utils.js';
+// when password is zero it will go through
+// create and view button have to be fixed
+// fix appending issue for view employee button
+
+import { updateTime } from './utils.js';
 var inputArray = [];
 $(document).ready(function () {
 	$.ajax("/api/employee", {
@@ -11,34 +15,45 @@ $(document).ready(function () {
 
 			var userInput = inputArray.join('');
 			var len = data.employee.length;
-			// if (userInput === "") {
-			// 	// console.log("Input a password please!")
-			// 	alert("Input a password please!")
-			// } else {
-			for (var i = 0; i < len; i++) {
-				var dataEmployeeID = data.employee[i].employee_id;
-				var employeePosition = data.employee[i].employee_position;
-				var id = data.employee[i].id
-				// console.log(employeePosition)
-				// console.log(userInput);
-				if (userInput == dataEmployeeID) {
-					if (employeePosition.indexOf("Manager") > -1) {
-						$('#exampleModalLong2').modal("show");
-						for (var i = 0; i < data.employee.length; i++) {
-							var dataID = data.employee[i].id;
-							var employeePosition = data.employee[i].employee_position;
-							var employeeFirstName = data.employee[i].employee_firstName;
-							var employeeLastName = data.employee[i].employee_lastName;
-							// console.log(data.employee[i].employee_firstName);
-							var allEmployee = $(".all-employee");
-							// allEmployee.empty();
-							var new_elem = `${dataID}. ${employeeFirstName} ${employeeLastName} (${employeePosition}) <button class='delete-employee' data-id='${dataID}'>DELETE</button><br>`;
-							allEmployee.append(new_elem);
-						}
+
+			var userInput = inputArray.join('');
+			var len = data.employee.length;
+
+			if (userInput === "") {
+				// console.log("Input a password please!")
+				alert("Input a password please!")
+			} else {
+				let password = false;
+				for (var i = 0; i < len; i++) {
+					var dataEmployeeID = data.employee[i].employee_id;
+					var employeePosition = data.employee[i].employee_position;
+					var id = data.employee[i].id
+				
+					if (userInput == dataEmployeeID) {
+
+						if (employeePosition.indexOf("Manager") > -1) {
+							$('#exampleModalLong2').modal("show");
+
+							for (var i = 0; i < data.employee.length; i++) {
+								var dataID = data.employee[i].id;
+								var employeePosition = data.employee[i].employee_position;
+								var employeeFirstName = data.employee[i].employee_firstName;
+								var employeeLastName = data.employee[i].employee_lastName;
+								// console.log(data.employee[i].employee_firstName);
+								var allEmployee = $(".all-employee");
+								// allEmployee.empty();
+								var new_elem = `${dataID}. ${employeeFirstName} ${employeeLastName} (${employeePosition}) <button class='delete-employee' data-id='${dataID}'>DELETE</button><br>`;
+								allEmployee.append(new_elem);
+							}
+							password = true;	
+						}	
 					}
 				}
+				if (!password) {
+					alert("Wrong password");
+					clear();
+				}
 			}
-			// }
 		})
 
 		$(".create-form").on("submit", function (event) {
@@ -77,11 +92,12 @@ $(document).ready(function () {
 				// console.log("Input a password please!")
 				alert("Input a password please!")
 			} else {
+				let password = false;
 				for (var i = 0; i < len; i++) {
 					var dataEmployeeID = data.employee[i].employee_id;
 					var employeePosition = data.employee[i].employee_position;
 					var id = data.employee[i].id
-					// console.log(employeePosition)
+
 					if (userInput == dataEmployeeID) {
 						if (employeePosition.indexOf("Manager") > -1) {
 							window.location.assign("/admin");
@@ -89,17 +105,12 @@ $(document).ready(function () {
 						if (employeePosition.indexOf("Cashier") > -1) {
 							window.location.assign("/cashier");
 						}
-						// } else {
-						// 	alert("Wrong password");
-						// 	$(".employeeID").empty();
-						// }
+						password = true;
 					}
-					// } else if (userInput = !dataEmployeeID) {
-					// 	alert("Wrong password")
-					// 	$(".employeeID").empty();
-
-					// }
-
+				}
+				if (!password) {
+					alert("Wrong password");
+					clear();
 				}
 			}
 		})
@@ -108,32 +119,33 @@ $(document).ready(function () {
 			// $('#exampleModalLong1').modal("show");
 			var userInput = inputArray.join('');
 			var len = data.employee.length;
-			// if (userInput === "") {
-			// 	// console.log("Input a password please!")
-			// 	alert("Input a password please!")
-			// } else {
-			for (var i = 0; i < len; i++) {
-				var dataEmployeeID = data.employee[i].employee_id;
-				var employeePosition = data.employee[i].employee_position;
-				var id = data.employee[i].id
-				// console.log(employeePosition)
-				// console.log(userInput);
+			if (userInput === "") {
+				// console.log("Input a password please!")
+				alert("Input a password please!")
+			} else {
+				let password = false;
+				for (var i = 0; i < len; i++) {
+					var dataEmployeeID = data.employee[i].employee_id;
+					var employeePosition = data.employee[i].employee_position;
+					var id = data.employee[i].id
 				if (userInput == dataEmployeeID) {
 					if (employeePosition.indexOf("Manager") > -1) {
 						$('#exampleModalLong1').modal("show");
-					} else {
-						alert("Wrong password");
+						password = true;
 					}
 				}
-				// } else if (userInput = !dataEmployeeID) {
-				// 	alert("Wrong password");
-				// 	$(".employeeID").empty();
-
-				// }
+				} if (!password) {
+					alert("Wrong Password!");
+					clear()
+				}
 			}
-			// }
 		})
 	})
+
+	function clear() {
+		$(".employeeID").empty();
+		inputArray = [];
+	}
 
 	// keypad number buttons
 	$(".number").on("click", function (event) {
@@ -153,12 +165,19 @@ $(document).ready(function () {
 		})
 	})
 
+	$(document).on("click", "#modal1", function (event) {
+		clear();
+	})
+
+	$(document).on("click", "#modal2", function (event) {
+		clear();
+	})
+
 	$(document).on("click", "#button-clear", function (event) {
 		$(".employeeID").empty();
 		inputArray = [];
 	});
 
-	orderButton();
 	setInterval(updateTime, 1000);
 	updateTime();
 })

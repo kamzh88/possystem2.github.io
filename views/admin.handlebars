@@ -1,139 +1,141 @@
-	<link rel="stylesheet" href="/css/admin.css">
+<link rel="stylesheet" href="/css/admin.css">
 
-	
-	<main class="containerGrid">
-		<!-- Header -->
-		<section class="header">
-			<div class="time"></div>
-			<div class="brand">
-				<h1>POS Systems</h1>
-				<span>1st Class POS Solutions</span>
-			</div>
-			<div class="adminButtons">
-				<button id="menu-changes" class="btn" data-toggle='modal' data-target='#exampleModalLong2'
-					value="edit"><span>Edit
-						Menu</span></button>
-				<button id="order-list" class="btn" data-toggle='modal' data-target="#exampleModalLong3">View Orders</button>
-				<button type="button" id="logOut" class="btn">Log Out</button>
-			</div>
-		</section>
 
-		<!-- Food Categories -->
-		<section class="buttons">
-			<section class="categoryGrid">
-				<h1>Category</h1>
-				<div id="category-div"></div>
-			</section>
-
-			<!-- Category Items -->
-			<section class="itemsGrid">
-				<h1>Items</h1>
-				<div id="items-div"></div>
-				<button id="create-items" class="btn" data-toggle='modal' data-target='#exampleModalLong1'
-					value="create"><span><i class="fas fa-plus"></i></span></button>
-			</section>
-		</section>
-		
-		<!-- Items List -->
-		<section class="orderGrid">
-			<form class=form-orderlist>
-				<h1 id="order-heading">Order</h1><br>
-				<div id="order-div"></div>
-				<div id="total"></div>
-				<div class="orderButtons">
-					<button type="submit" class="btn btn-primary submit">Send</button>
-				</div>
-			</form>
-		</section>
-
-		<!-- Modals -->
-		<div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLongTitle">Create Menu Item</h5>
-						<button id="modal1" type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<form class="create-form">
-						<div class="modal-body">
-							<div class="form-group">
-								<label for="">Item Name</label>
-								<input type="text" class="form-control" id="item-name">
-							</div>
-							<div class="form-group">
-								<label for="exampleFormControlSelect1">Category</label>
-								<select class="form-control" id="category-name">
-									<option>Chicken</option>
-									<option>Beef</option>
-									<option>Seafood</option>
-									<option>Vegetables</option>
-									<option>Appetizers</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="">Price</label>
-								<input type="text" class="form-control" id="item-price">
-							</div>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal"
-								id="modal1">Close</button>
-							<button type="submit" class="btn btn-primary submit">Create</button>
-						</div>
-					</form>
-				</div>
-			</div>
+<main class="containerGrid">
+	<!-- Header -->
+	<section class="header">
+		<div class="time"></div>
+		<div class="brand">
+			<h1>POS Systems</h1>
+			<span>1st Class POS Solutions</span>
 		</div>
-
-		<div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLongTitle">Edit Menu Items</h5>
-						<button id="modal2" type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-					</div>ç
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal2">Close</button>
-					</div>
-				</div>
-			</div>
+		<div class="adminButtons">
+			<button id="menu-changes" class="btn" data-toggle='modal' data-target='#exampleModalLong2'
+				value="edit"><span>Edit
+					Menu</span></button>
+			<button id="order-list" class="btn" data-toggle='modal' data-target="#exampleModalLong3">View
+				Orders</button>
+			<button type="button" id="logOut" class="btn">Log Out</button>
 		</div>
+	</section>
 
-		<div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLongTitle"></h5>
-						<button id="modal3" type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
+	<!-- Food Categories -->
+	<section class="buttons">
+		<section class="categoryGrid">
+			<h1>Category</h1>
+			<div id="category-div"></div>
+		</section>
+
+		<!-- Category Items -->
+		<section class="itemsGrid">
+			<h1>Items</h1>
+			<div id="items-div"></div>
+			<button id="create-items" class="btn" data-toggle='modal' data-target='#exampleModalLong1'
+				value="create"><span><i class="fas fa-plus"></i></span></button>
+		</section>
+	</section>
+
+	<!-- Items List -->
+	<section class="orderGrid">
+		<form class=form-orderlist>
+			<h1 id="order-heading">Order</h1><br>
+			<div id="order-div"></div>
+			<div class="orderReceiptButtons">
+				<button class="btn btn-danger submit orderReceiptDeleteButton">Delete</button>
+			</div>
+			<div id="total"></div>
+			<div class="orderButtons">
+				<button type="submit" class="btn btn-primary submit">Send</button>
+			</div>
+		</form>
+	</section>
+
+	<!-- Modals -->
+	<div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Create Menu Item</h5>
+					<button id="modal1" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form class="create-form">
 					<div class="modal-body">
-						<div class="body3">
-							
+						<div class="form-group">
+							<label for="">Item Name</label>
+							<input type="text" class="form-control" id="item-name">
+						</div>
+						<div class="form-group">
+							<label for="exampleFormControlSelect1">Category</label>
+							<select class="form-control" id="category-name">
+								<option>Chicken</option>
+								<option>Beef</option>
+								<option>Seafood</option>
+								<option>Vegetables</option>
+								<option>Appetizers</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="">Price</label>
+							<input type="text" class="form-control" id="item-price">
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal3">Close</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal1">Close</button>
+						<button type="submit" class="btn btn-primary submit">Create</button>
 					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Edit Menu Items</h5>
+					<button id="modal2" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+				</div>ç
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal2">Close</button>
 				</div>
 			</div>
 		</div>
-	</main>
+	</div>
 
-	<script src="https://kit.fontawesome.com/a5a0fef831.js" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
-	<script type="module" src="/js/adminView.js"></script>
+	<div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle"></h5>
+					<button id="modal3" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="body3">
 
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal3">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+<script src="https://kit.fontawesome.com/a5a0fef831.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<script type="module" src="/js/adminView.js"></script>

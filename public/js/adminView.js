@@ -1,4 +1,4 @@
-import { orderButton, updateTime } from './utils.js';
+import { updateTime } from './utils.js';
 
 $(document).ready(function () {
     var tax;
@@ -42,6 +42,7 @@ $(document).ready(function () {
                 }
             })
 
+
             //itemID is the ID of the on click function
             $(document).on("click", ".itembtn", function (event) {
                 var id = $(this).data("id");
@@ -52,8 +53,8 @@ $(document).ready(function () {
                         var itemName = data.menu[i].item_name;
                         var itemPrice = data.menu[i].price;
                         var new_elem = `
-                            <div><span class="item-name" data-id=${id}>${itemName}</span><span class="boldCSS">$${itemPrice}</span></div>
-                            </div>`;
+                        <button type="button" class="onClickItem" data-id=${id}><span class="item-name" data-id=${id}>${itemName}</span><span class="boldPriceCSS">$${itemPrice}</span></button>
+                            `;
                         orderDiv.append(new_elem);
                         priceArray.push(parseFloat(itemPrice));
                         subTotal = priceArray.reduce((a, b) => a + b, 0)
@@ -62,6 +63,18 @@ $(document).ready(function () {
                     };
                 }
             })
+            var deleteIDArray = [];
+            $(document).on("click", ".onClickItem", function (event) {
+                    $( this ).toggleClass( "changeState" );
+                    var deleteID = $(this).data("id");
+                    deleteIDArray.push(deleteID);
+                    
+            })
+  
+            $(document).on("click", ".orderReceiptDeleteButton", function (event) {
+                console.log(deleteIDArray);
+            })
+
 
             $(".form-orderlist").on("submit", function (event) {
                 event.preventDefault();
@@ -263,13 +276,13 @@ $(document).ready(function () {
                         <div <div id="total">
                         <div class="totalGrid">
                             <div class="subtotalCSS">
-                                Subtotal: <span class="boldCSS">${subtotal}</span>
+                                Subtotal: <span class="boldPriceCSS">${subtotal}</span>
                             </div>
                             <div class="taxCSS">
-                                Tax: <span class="boldCSS">${taxes}</span>
+                                Tax: <span class="boldPriceCSS">${taxes}</span>
                             </div>
                             <div class="totalCSS">
-                                Total: <span class="boldCSS">${total}</span>
+                                Total: <span class="boldPriceCSS">${total}</span>
                             </div>
                         </div></div>
                         <div class="orderButtons">
@@ -302,15 +315,16 @@ $(document).ready(function () {
         var total_elem = `
         <div class="totalGrid">
             <div class="subtotalCSS">
-                Subtotal: <span class="boldCSS">$${subTotal.toFixed(2)}</span>
+                Subtotal: <span class="boldPriceCSS">$${subTotal.toFixed(2)}</span>
             </div>
             <div class="taxCSS">
-                Tax: <span class="boldCSS">$${tax}</span>
+                Tax: <span class="boldPriceCSS">$${tax}</span>
             </div>
             <div class ="totalCSS">
-                Total: <span class="boldCSS">$${total}</span>
+                Total: <span class="boldPriceCSS">$${total}</span>
             </div>
-        </div>`;
+        </div>
+         `
         totalDiv.append(total_elem);
     }
 
@@ -363,7 +377,6 @@ $(document).ready(function () {
         $(".body3").empty();
     });
 
-    orderButton();
     setInterval(updateTime, 1000);
     updateTime();
 })

@@ -203,7 +203,28 @@ h1 {
 .order-div > div:hover {
 	background-color: deepskyblue;
 }
-.boldCSS {
+.boldPriceCSS {
 	font-weight: bold;
 	float: right;
+}
+.item-name {
+	float: left;
+}
+.onClickItem {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+	outline:none;
+	width: 26.5rem;
+}
+.changeState{
+	background-color: lightgrey;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+	outline:none;
+	width: 26.5rem;
 }
