@@ -83,6 +83,17 @@ router.delete("/api/employee/:id", function (req, res) {
     })
 })
 
+router.delete('/api/orders/:id', function (req, res) {
+    var condition = "id = " + req.params.id;
+    menu.deleteItem(condition, function (result) {
+        if (result.affectedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        };
+    })
+})
+
 router.delete("/api/menu/:id", function (req, res) {
     var condition = "id = " + req.params.id;
     // console.log(condition);

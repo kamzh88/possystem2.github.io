@@ -4,11 +4,13 @@
 <main class="containerGrid">
 	<!-- Header -->
 	<section class="header">
-		<div class="time"></div>
+		
 		<div class="brand">
 			<h1>POS Systems</h1>
 			<span>1st Class POS Solutions</span>
+			
 		</div>
+		
 		<div class="adminButtons">
 			<button id="menu-changes" class="btn" data-toggle='modal' data-target='#exampleModalLong2'
 				value="edit"><span>Edit
@@ -17,6 +19,7 @@
 				Orders</button>
 			<button type="button" id="logOut" class="btn">Log Out</button>
 		</div>
+		<div class="time"></div>
 	</section>
 
 	<!-- Food Categories -->
@@ -39,10 +42,11 @@
 	<section class="orderGrid">
 		<form class=form-orderlist>
 			<h1 id="order-heading">Order</h1><br>
+			
 			<div id="order-div"></div>
-			<div class="orderReceiptButtons">
+			{{!-- <div class="orderReceiptButtons">
 				<button class="btn btn-danger submit orderReceiptDeleteButton">Delete</button>
-			</div>
+			</div> --}}
 			<div id="total"></div>
 			<div class="orderButtons">
 				<button type="submit" class="btn btn-primary submit">Send</button>

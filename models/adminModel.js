@@ -27,6 +27,11 @@ var menu = {
             cb(res);
         });
     },
+    deleteItem: function (condition, cb) {
+        orm.delete("orders"), condition, function (res) {
+            cb(res);
+        }
+    },
     del: function (condition, cb) {
         // console.log(conditon);
         orm.delete("menu", condition, function (res) {

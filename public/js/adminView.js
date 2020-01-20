@@ -53,7 +53,7 @@ $(document).ready(function () {
                         var itemName = data.menu[i].item_name;
                         var itemPrice = data.menu[i].price;
                         var new_elem = `
-                        <button type="button" class="onClickItem" data-id=${id}><span class="item-name" data-id=${id}>${itemName}</span><span class="boldPriceCSS">$${itemPrice}</span></button>
+                        <button type="button" class="onClickItem" data-id=${id}><span class="item-name" data-id=${id}>${itemName}</span><span class="boldPriceCSS">$${itemPrice}</span></button><br>
                             `;
                         orderDiv.append(new_elem);
                         priceArray.push(parseFloat(itemPrice));
@@ -65,14 +65,23 @@ $(document).ready(function () {
             })
             var deleteIDArray = [];
             $(document).on("click", ".onClickItem", function (event) {
-                    $( this ).toggleClass( "changeState" );
-                    var deleteID = $(this).data("id");
-                    deleteIDArray.push(deleteID);
-                    
+                $(this).toggleClass("changeState");
+                var deleteID = $(this).data("id");
+                deleteIDArray.push(deleteID);
+
             })
-  
+
             $(document).on("click", ".orderReceiptDeleteButton", function (event) {
                 console.log(deleteIDArray);
+                var id = deleteIDArray
+                for (var i = 0; i < id; i++) {
+                    $.ajax('/api/orders', id[i], {
+                        type: "DELETE"
+                    }).then(function () {
+                        // console.log("Item has been deleted!");
+                        // location.reload();
+                    })
+                }
             })
 
 
@@ -207,8 +216,8 @@ $(document).ready(function () {
                 $.ajax("/api/orders", {
                     type: "GET"
                 }).then(function (orders) {
-                    
-                    
+
+
                     var dateArray = [];
                     var subtotalArray = [];
                     var taxArray = [];
@@ -232,7 +241,7 @@ $(document).ready(function () {
                         orderScreen.empty();
                         var ticket = $(this).data("ticket");
                         var orderDiv = $('#order-div');
-                        
+
                         for (var j = 0; j < data.menu.length; j++) {
                             var dataID = data.menu[j].id
                             // console.log("dataID:" + dataID);
