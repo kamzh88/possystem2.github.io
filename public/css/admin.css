@@ -301,10 +301,14 @@ h1 {
 	outline:none;
 	width: 26.5rem;
 }
+#cart{
+	display: none;
+}
 @media screen and (max-width: 1049px) {
 	.brand{
 		display: none !important;
 	}
+
 }
 @media screen and (max-width: 800px) {
 	.time {
@@ -328,5 +332,8 @@ h1 {
 	}
 	.buttons {
 		width: 40rem;
+	}
+	#cart{
+		display: block;
 	}
 }

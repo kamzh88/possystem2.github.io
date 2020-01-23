@@ -42,11 +42,11 @@ $(document).ready(function () {
                 }
             })
 
-
             //itemID is the ID of the on click function
             $(document).on("click", ".itembtn", function (event) {
                 var id = $(this).data("id");
                 var orderDiv = $('#order-div');
+                var cartDiv = $('.cart-body');
                 var len = data.menu.length;
                 for (var i = 0; i < len; i++) {
                     if (id === data.menu[i].id) {
@@ -56,6 +56,7 @@ $(document).ready(function () {
                         <button type="button" class="onClickItem" data-id=${id}><span class="item-name" data-id=${id}>${itemName}</span><span class="boldPriceCSS">$${itemPrice}</span></button><br>
                             `;
                         orderDiv.append(new_elem);
+                        cartDiv.append(new_elem);
                         priceArray.push(parseFloat(itemPrice));
                         subTotal = priceArray.reduce((a, b) => a + b, 0)
                         totals(subTotal);
@@ -63,26 +64,26 @@ $(document).ready(function () {
                     };
                 }
             })
-            var deleteIDArray = [];
-            $(document).on("click", ".onClickItem", function (event) {
-                $(this).toggleClass("changeState");
-                var deleteID = $(this).data("id");
-                deleteIDArray.push(deleteID);
+            // var deleteIDArray = [];
+            // $(document).on("click", ".onClickItem", function (event) {
+            //     $(this).toggleClass("changeState");
+            //     var deleteID = $(this).data("id");
+            //     deleteIDArray.push(deleteID);
 
-            })
+            // })
 
-            $(document).on("click", ".orderReceiptDeleteButton", function (event) {
-                console.log(deleteIDArray);
-                var id = deleteIDArray
-                for (var i = 0; i < id; i++) {
-                    $.ajax('/api/orders', id[i], {
-                        type: "DELETE"
-                    }).then(function () {
-                        // console.log("Item has been deleted!");
-                        // location.reload();
-                    })
-                }
-            })
+            // $(document).on("click", ".orderReceiptDeleteButton", function (event) {
+            //     console.log(deleteIDArray);
+            //     var id = deleteIDArray
+            //     for (var i = 0; i < id; i++) {
+            //         $.ajax('/api/orders', id[i], {
+            //             type: "DELETE"
+            //         }).then(function () {
+            //             // console.log("Item has been deleted!");
+            //             // location.reload();
+            //         })
+            //     }
+            // })
 
 
             $(".form-orderlist").on("submit", function (event) {
