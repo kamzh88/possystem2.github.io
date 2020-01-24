@@ -24,17 +24,20 @@ $(document).ready(function () {
 
         //categorybtn data
         $(document).on("click", ".categorybtn", function (event) {
-            var itemsDiv = $('#items-div');
             var categorybtn = $(this).data("category");
-            var len = data.menu.length;
-            itemsDiv.empty();
-            for (var i = 0; i < len; i++) {
-                if (categorybtn === data.menu[i].category) {
-                    var itemName = data.menu[i].item_name
-                    var new_elem = `<button class='itembtn' data-id=${data.menu[i].id} data-item=${itemName}>${itemName}</button>`
-                    itemsDiv.append(new_elem);
-                };
-            }
+            $.ajax("/api/menu/"+categorybtn, {
+                type: "GET"
+            }).then(function (data) {
+               
+                var itemsDiv = $('#items-div');
+                var len = data.menu.length;
+                itemsDiv.empty();
+                for (var i = 0; i < len; i++) {
+                        var itemName = data.menu[i].item_name
+                        var new_elem = `<button class='itembtn' data-id=${data.menu[i].id} data-item=${itemName}>${itemName}</button>`
+                        itemsDiv.append(new_elem);
+                }
+            })
         })
 
         //itemID is the ID of the on click function
@@ -59,7 +62,7 @@ $(document).ready(function () {
                 };
             }
         })
-        
+
         // var deleteIDArray = [];
         // $(document).on("click", ".onClickItem", function (event) {
         //     $(this).toggleClass("changeState");
