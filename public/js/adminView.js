@@ -3,6 +3,16 @@ import { updateTime } from './utils.js';
 $(document).ready(function () {
     var tax;
     var total;
+
+    //append category onto the page
+    var categoryElem = $('#category-div');
+    var category = ["Chicken", "Beef", "Appetizers", "Vegetables", "Seafood"];
+    var len = category.length;
+    for (var i = 0; i < len; i++) {
+        var new_elem = `<button class='categorybtn' data-category=${category[i]}>${category[i]}</button>`
+        categoryElem.append(new_elem);
+    }
+
     $.ajax("/api/menu", {
         type: "GET"
     }).then(function (data) {
@@ -11,16 +21,6 @@ $(document).ready(function () {
         var itemID = [];
         var subTotal;
         var priceArray = [];
-        var categoryElem = $('#category-div');
-        // console.log(data);
-
-        //append category onto the page
-        var category = ["Chicken", "Beef", "Appetizers", "Vegetables", "Seafood"];
-        var len = category.length;
-        for (var i = 0; i < len; i++) {
-            var new_elem = `<button class='categorybtn' data-id=${data.menu} data-category=${category[i]}>${category[i]}</button>`
-            categoryElem.append(new_elem);
-        }
 
         //categorybtn data
         $(document).on("click", ".categorybtn", function (event) {
@@ -59,6 +59,7 @@ $(document).ready(function () {
                 };
             }
         })
+        
         // var deleteIDArray = [];
         // $(document).on("click", ".onClickItem", function (event) {
         //     $(this).toggleClass("changeState");
